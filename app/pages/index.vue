@@ -132,7 +132,7 @@ onMounted(() => {
         </div>
 
         <div
-          class="@container mx-auto w-full overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-zinc-200 transition-all duration-300"
+          class="@container mx-auto w-full overflow-clip rounded-lg bg-white shadow-sm ring-1 ring-zinc-200 transition-all duration-300"
           :class="view === 'mobile' ? 'max-w-[390px]' : 'max-w-6xl'"
         >
           <BuilderPreviewFrame />

@@ -10,6 +10,7 @@ export interface Theme {
   text: string;
   primary: string;
   radius: string;
+  stickyNav: boolean;
 }
 
 export interface Composition {
@@ -43,6 +44,7 @@ const defaultComposition = (): Composition => ({
     text: "#18181b",
     primary: "#2563eb",
     radius: "0.5rem",
+    stickyNav: false,
   },
 });
 

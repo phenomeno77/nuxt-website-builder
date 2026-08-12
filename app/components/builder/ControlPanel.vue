@@ -185,6 +185,15 @@ function toggle(panel: string) {
       </h2>
       <div class="space-y-2">
         <label class="flex items-center justify-between">
+          <span class="text-xs text-zinc-500">Sticky navbar</span>
+          <input
+            class="h-5 w-5 cursor-pointer rounded border border-zinc-200"
+            type="checkbox"
+            v-model="composition.theme.stickyNav"
+          />
+        </label>
+
+        <label class="flex items-center justify-between">
           <span class="text-xs text-zinc-500">Background</span>
           <input
             v-model="composition.theme.bg"
@@ -192,6 +201,7 @@ function toggle(panel: string) {
             class="h-7 w-10 cursor-pointer rounded border border-zinc-200"
           />
         </label>
+
         <label class="flex items-center justify-between">
           <span class="text-xs text-zinc-500">Surface</span>
           <input

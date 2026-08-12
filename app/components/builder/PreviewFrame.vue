@@ -1,34 +1,36 @@
 <script setup lang="ts">
-const registry = useSectionRegistry()
-const { composition } = useComposition()
+const registry = useSectionRegistry();
+const { composition } = useComposition();
 
 function componentFor(type: string, name: string | null) {
-  if (!name) return null
-  return registry[type]?.find((v) => v.name === name)?.component ?? null
+  if (!name) return null;
+  return registry[type]?.find((v) => v.name === name)?.component ?? null;
 }
 
 const themeStyle = computed(() => ({
-  '--builder-bg': composition.value.theme.bg,
-  '--builder-surface': composition.value.theme.surface,
-  '--builder-text': composition.value.theme.text,
-  '--builder-primary': composition.value.theme.primary,
-  '--builder-radius': composition.value.theme.radius,
-}))
+  "--builder-bg": composition.value.theme.bg,
+  "--builder-surface": composition.value.theme.surface,
+  "--builder-text": composition.value.theme.text,
+  "--builder-primary": composition.value.theme.primary,
+  "--builder-radius": composition.value.theme.radius,
+}));
 
 const isEmpty = computed(
   () =>
     !composition.value.navbar &&
     composition.value.middle.length === 0 &&
     !composition.value.footer,
-)
+);
 </script>
 
 <template>
   <div class="min-h-full" :style="themeStyle">
-    <component
-      :is="componentFor('navbar', composition.navbar)"
+    <div
       v-if="composition.navbar"
-    />
+      :class="composition.theme.stickyNav ? 'sticky top-0 z-50' : ''"
+    >
+      <component :is="componentFor('navbar', composition.navbar)" />
+    </div>
 
     <component
       v-for="s in composition.middle"
